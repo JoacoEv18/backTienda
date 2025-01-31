@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import path from "path";
 import { connectDB } from "./config/db.js";
+import cors from "cors";
 
 import productsRoutes from "./routes/product.route.js";
 
@@ -14,6 +15,8 @@ const port = process.env.PORT || 3000;
 const __dirname = path.resolve();
  
 app.use(express.json()); // nos permite aceptar datos json
+
+app.use(cors());
 
 /*     if (process.env.NODE_ENV === "production") {
         app.use(express.static(path.join(__dirname, "/front/dist")));
